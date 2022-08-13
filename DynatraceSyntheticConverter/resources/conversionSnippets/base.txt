@@ -74,7 +74,7 @@ class AppDynamicsJob(unittest.TestCase):
         max_timeout_reached = False
         found_needle = False
         while not max_timeout_reached and not found_needle:
-            text = self.driver.find_element_by_tag_name(selector_string).text.lower()
+            text = self.driver.find_element(By.TAG_NAME,selector_string).text.lower()
             found_needle = re.search(needle.lower(), text) is not None
             elapsed = datetime.now() - start_time
             if elapsed > timedelta(seconds=wait_time):
